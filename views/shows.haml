@@ -14,7 +14,10 @@
     #{preload_images_str}
   ]);
 
-%h1.first.center Our 2011 Season
+%h1.first.center
+  Our
+  = @shows.first['start'].strftime("%Y")
+  Season
 #shows
   - @shows.each_with_index do |show, i|
     - if current_show == i
