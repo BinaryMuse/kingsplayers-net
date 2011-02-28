@@ -122,8 +122,8 @@ body {
   h1, h2, h3, h4, h5, h6, p {
     margin: 5px;
   }
-  ol {
-    margin-left: 30px;
+  ol, ul {
+    margin-left: 40px;
   }
 }
 
@@ -165,18 +165,6 @@ body {
 
 #show-descs {
   text-align: center;
-}
-
-#show-desc-2 {
-  display: none;
-}
-
-#show-desc-3 {
-  display: none;
-}
-
-#show-desc-4 {
-  display: none;
 }
 
 #footer {

@@ -88,8 +88,8 @@ body {
     text-align: center; }
   #content h1, #content h2, #content h3, #content h4, #content h5, #content h6, #content p {
     margin: 5px; }
-  #content ol {
-    margin-left: 30px; }
+  #content ol, #content ul {
+    margin-left: 40px; }
 
 #shows {
   list-style: none;
@@ -124,15 +124,6 @@ body {
 
 #show-descs {
   text-align: center; }
-
-#show-desc-2 {
-  display: none; }
-
-#show-desc-3 {
-  display: none; }
-
-#show-desc-4 {
-  display: none; }
 
 #footer {
   /*background-color: lighten($base-color, 10%);*/

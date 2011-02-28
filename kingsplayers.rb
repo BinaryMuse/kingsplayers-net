@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/outputbuffer'
 require 'haml'
 require 'stringio'
+require 'yaml'
 
 PAGES_REGEX = "(tickets|directions|volunteer|about)"
 
@@ -22,6 +23,7 @@ get '/test' do
 end
 
 get '/' do
+  @shows = YAML.load File.new(File.expand_path("./shows.yaml")).readlines.join
   haml :shows
 end
 

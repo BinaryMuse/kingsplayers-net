@@ -1,59 +1,44 @@
+- today = Date.today
+- current_show = nil
+- @shows.each_with_index do |show, i|
+  - if current_show.nil? && today <= show['end']
+    - current_show = i
+- if current_show.nil? # if it's after the last show, this'll be nil
+  - current_show = @shows.size - 1
+
 %h1.first.center Our 2011 Season
 #shows
-  %a.selected{:href => "#", 'data-show' => "1"}<>
-    Harvey
-    %br
-    %strong Mar 11
-  %a{:href => "#", 'data-show' => "2"}<>
-    June Groom
-    %br
-    %strong June 3
-  %a{:href => "#", 'data-show' => "3"}<>
-    The Graduate
-    %br
-    %strong Sept 2
-  %a{:href => "#", 'data-show' => "4"}<>
-    FrUiTcAkEs
-    %br
-    %strong Nov 18
+  - @shows.each_with_index do |show, i|
+    - if current_show == i
+      - a_class = 'selected'
+    - else
+      - a_class = 'unselected'
+    %a{:href => "#", 'data-show' => "#{i+1}", :class => a_class}<>
+      = show['name']
+      %br
+      %strong= show['start'].strftime("%b %d").sub(/0([1-9])/, '\1')
 
 #stage_shows
   #stage_bg
     %img#stage{:src => "/images/stage/stage_drapes.png"}
     #left
     #right
-    %img#show{:src => "/images/show1.png"}
+    %img#show{:src => "/images/show#{current_show + 1}.png"}
 
 #show-descs
-  #show-desc-1.show-desc
-    %p
-      %strong Harvey
-      written by Mary Chase, directed by Wyleen Luoma
-    %p
-      When Elwood P. Dowd starts to introduce his imaginary friend, Harvey, a six-and-a-half-foot rabbit, to guests at a society party, his sister, Veta, has seen as much of his eccentric behavior as she can tolerate. She decides to have him committed to a sanitarium. Problems arise when Veta herself is mistakenly assumed to be on the verge of lunacy. When Elwood shows up at the sanitarium looking for his lost friend Harvey, it seems that the mild-mannered Elwood's delusion has had a strange influence on more than one of the doctors.
-    %p
-      Show Dates: March 11, 12, 18, 19, 20, 25, 26, 27, April 1, 2 &amp; 3
-  #show-desc-2.show-desc
-    %p
-      %strong June Groom
-      written by Rick Abbot, directed by Sean Hopper
-    %p
-      Three days after his marriage to Dinah, Jordan tells his friend Marty he's sworn to Uncle Harvey to remain celibate until this birthday to receive a fortune. When his uncle comes to deliver the check in person a plan to switch identities causes for a side splitting, hilarious romp.
-    %p
-      Show Dates: June 3, 4, 10, 11, 12, 17, 18, 19, 24, 25 &amp; 26
-  #show-desc-3.show-desc
-    %p
-      %strong The Graduate
-      written by Terry Johnson, directed by Corey Ralston
-    %p
-      Recently On-Broadway the hit 1960's classic film comes to our stage. Benjamin Braddock, recent college graduate and prodigal son, returns home and promptly becomes embroiled in an affair with the wife of his father's business partner, one Mrs. Robinson, but soon finds himself falling in love with her daughter, Elaine.
-    %p
-      Show Dates: September 2, 3, 9, 10, 11, 16, 17, 18, 23, 24 &amp; 25
-  #show-desc-4.show-desc
-    %p
-      %strong FrUiTcAkEs
-      written by Julian Wiles, directed by Debra Stimpson
-    %p
-      A youth production! Mix together a batch of fruitcakes, three dozen Christmas trees, 10,000 outdoor Christmas lights, a chicken pox epidemic, two southern spinsters, an angel on roller skates, shepherds on skateboards, an estranged old man, a lost cat named Tutti Frutti and a Christmas hog named Buster and you've got the recipe for a fun filled and touching evening filled with holiday cheer.
-    %p
-      Show Dates: November 18, 19, 20, 26, 27, December: 2, 3, 4, 9 &amp; 10
+  - @shows.each_with_index do |show, i|
+    - if current_show == i
+      - style = 'display: block;'
+    - else
+      - style = 'display: none;'
+    %div{:id => "show-desc-#{i+1}", :class => "show-desc", :style => style}
+      %p
+        %strong= show['name']
+        written by
+        = "#{show['written']},"
+        directed by
+        = show['directed']
+      %p
+        = show['description']
+      %p
+        = show['dates']
