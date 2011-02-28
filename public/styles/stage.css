@@ -1,0 +1,59 @@
+#stage_bg {
+  position: relative;
+  /*top: 60px;
+  left: 10px;*/
+  z-index: 1;
+  width: 640px;
+  height: 427px;
+  background-image: url("/images/stage/stage_floor.png");
+  background-color: black;
+  left: 50%;
+  margin-left: -320px;
+}
+
+#stage {
+  position: absolute;
+  /*top: 60px;
+  left: 10px;*/
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+}
+
+#show {
+  position: absolute;
+  left: 110px;
+  top: 167px;
+  z-index: 40;
+  margin: 0;
+  padding: 0;
+}
+
+#left {
+  position: absolute;
+  left: 45px;
+  top: 61px;
+  background: url("/images/stage/curtain_left.png");
+  background-position: right;
+  /*width: 294px;*/
+  width: 30px;
+  height: 366px;
+  z-index: 50;
+  margin: 0;
+  padding: 0;
+}
+
+#right {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  /*left: 337px;*/
+  left: 172px;
+  top: 61px;
+  margin-left: 400px;
+  background: url("/images/stage/curtain_right.png");
+  /*width: 265px;*/
+  width: 30px;
+  height: 366px;
+  z-index: 49;
+}

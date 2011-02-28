@@ -1,0 +1,19 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    haml (3.0.25)
+    rack (1.2.1)
+    sinatra (1.2.0.d)
+      rack (~> 1.1)
+      tilt (>= 1.2.2, < 2.0)
+    sinatra-outputbuffer (0.1.0)
+      sinatra (>= 1.0.a)
+    tilt (1.2.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  haml
+  sinatra
+  sinatra-outputbuffer
