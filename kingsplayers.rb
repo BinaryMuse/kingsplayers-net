@@ -18,10 +18,6 @@ helpers do
   end
 end
 
-get '/test' do
-  haml :test
-end
-
 get '/' do
   @shows = YAML.load File.new(File.expand_path("./shows.yaml")).readlines.join
   haml :shows
