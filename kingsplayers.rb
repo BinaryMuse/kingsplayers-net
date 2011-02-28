@@ -18,16 +18,30 @@ helpers do
   end
 end
 
+def load_shows
+  YAML.load File.new(File.expand_path("./shows.yaml")).readlines.join
+end
+
 get '/' do
-  @shows = YAML.load File.new(File.expand_path("./shows.yaml")).readlines.join
+  @shows = load_shows
   haml :shows
 end
 
-get %r{#{PAGES_REGEX}$} do |page|
+get %r{^/shows/([0-9])$} do |num|
+  @show_num = num.to_i
+  @shows = load_shows
+  if @show_num > @shows.size || @show_num <= 0
+    return 404
+  end
+  @show = @shows[@show_num - 1]
+  haml :show
+end
+
+get %r{^#{PAGES_REGEX}$} do |page|
   redirect "/#{page}/"
 end
 
-get %r{/#{PAGES_REGEX}/$} do |page|
+get %r{^/#{PAGES_REGEX}/$} do |page|
   haml page.to_sym
 end
 

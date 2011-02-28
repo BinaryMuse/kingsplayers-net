@@ -1,0 +1,11 @@
+%h1.first= @show['name']
+%p
+  Written by
+  = "#{@show['written']},"
+  directed by
+  = "#{@show['directed']}."
+%p
+  %img{:src => "/images/show#{@show_num}.png"}
+%p= @show['description']
+%p= @show['dates']
+%p= link_to "Back to the Current Season", "/"

@@ -24,7 +24,7 @@
       - a_class = 'selected'
     - else
       - a_class = 'unselected'
-    %a{:href => "#", 'data-show' => "#{i+1}", :class => a_class}<>
+    %a{:href => "/shows/#{i+1}", 'data-show' => "#{i+1}", :class => a_class}<>
       = show['name']
       %br
       %strong= show['start'].strftime("%b %d").sub(/0([1-9])/, '\1')
