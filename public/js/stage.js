@@ -7,7 +7,7 @@ var img = 1;
 
 function open_left() {
   $('#left').animate({
-    width: 30
+    left: '-=255'
   }, animation_time, open_easing, function() {
     animation_lock = false;
   });
@@ -15,7 +15,7 @@ function open_left() {
 
 function close_left() {
   $('#left').animate({
-    width: 304
+    left: '+=255'
   }, animation_time, close_easing, function() {
       setTimeout('open_left();', animation_wait);
     });
@@ -23,14 +23,12 @@ function close_left() {
 
 function open_right() {
   $('#right').animate({
-    width: 30,
     left:  '+=255'
   }, animation_time, open_easing);
 }
 
 function close_right() {
   $('#right').animate({
-    width: 285,
     left:  '-=255'
   }, animation_time, close_easing, function() {
     setTimeout('open_right();', animation_wait);

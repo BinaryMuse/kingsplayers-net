@@ -9,6 +9,7 @@
   background-color: black;
   left: 50%;
   margin-left: -320px;
+  overflow: hidden;
 }
 
 #stage {
@@ -31,12 +32,12 @@
 
 #left {
   position: absolute;
-  left: 45px;
+  left: -245px;
   top: 61px;
   background: url("/images/stage/curtain_left.png");
   background-position: right;
   /*width: 294px;*/
-  width: 30px;
+  width: 320px;
   height: 366px;
   z-index: 50;
   margin: 0;
@@ -48,12 +49,12 @@
   padding: 0;
   position: absolute;
   /*left: 337px;*/
-  left: 172px;
+  left: 162px;
   top: 61px;
   margin-left: 400px;
   background: url("/images/stage/curtain_right.png");
   /*width: 265px;*/
-  width: 30px;
+  width: 325px;
   height: 366px;
   z-index: 49;
 }
