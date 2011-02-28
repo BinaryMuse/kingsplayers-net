@@ -1,15 +1,3 @@
-// function preload(arrayOfImages) {
-//     $(arrayOfImages).each(function(){
-//         $('<img/>')[0].src = this;
-//     });
-// }
-// 
-// preload([
-//     'images/show1.png',
-//     'images/show2.png'
-// ]);
-
-
 var animation_time = 1500;
 var animation_wait = 0;
 var animation_lock = false;

@@ -1,3 +1,9 @@
+function preload(arrayOfImages) {
+  $(arrayOfImages).each(function(){
+    $('<img/>')[0].src = this;
+  });
+}
+
 $(function() {
   var height = $('#navigation').height();
   $('#nav_extend').css('height', height - 10);

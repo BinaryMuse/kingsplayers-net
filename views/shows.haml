@@ -1,10 +1,18 @@
 - today = Date.today
 - current_show = nil
+- preload_images = []
 - @shows.each_with_index do |show, i|
+  - preload_images << "'/images/show#{i+1}.png'"
   - if current_show.nil? && today <= show['end']
     - current_show = i
 - if current_show.nil? # if it's after the last show, this'll be nil
   - current_show = @shows.size - 1
+- preload_images_str = preload_images.join(",\n")
+
+:javascript
+  preload([
+    #{preload_images_str}
+  ]);
 
 %h1.first.center Our 2011 Season
 #shows
