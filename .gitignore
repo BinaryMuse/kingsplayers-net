@@ -1,2 +1,4 @@
 .rvmrc
 .sass-cache/*
+tmp/*
+!tmp/.gitkeep
