@@ -4,12 +4,13 @@ function preload(arrayOfImages) {
   });
 }
 
+var current_show;
 $(function() {
   var height = $('#navigation').height();
   $('#nav_extend').css('height', height - 10);
-});
 
-var current_show = "1";
+  current_show = $("#shows a.selected").attr('data-show');
+});
 
 $('#shows a').live('click', function() {
   if(animation_lock == true) {
