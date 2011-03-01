@@ -4,6 +4,7 @@ var animation_lock = false;
 var open_easing    = 'easeOutBack';
 var close_easing   = 'easeOutBack';
 var img = 1;
+var new_image;
 
 function open_left() {
   $('#left').animate({
@@ -36,7 +37,14 @@ function close_right() {
 }
 
 function changeImage(element, image_src) {
-  $(element).attr('src', image_src);
+  // :( IE 6 fix, as this doesn't work:
+  // $(element).attr('src', image_src);
+  var el = $(element);
+  // new_image global to prevent flickering
+  new_image = new Image();
+  new_image.src = image_src;
+  new_image.id = 'show';
+  el.replaceWith(new_image);
 }
 
 function change_to(element, image_src) {
