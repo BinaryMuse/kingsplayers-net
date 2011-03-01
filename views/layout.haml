@@ -31,6 +31,11 @@
       %p.small
         Copyright &copy; 2011 Brandon Tilley
   :javascript
-    src="http://gaug.es/track.js"
-    id="gauges-tracker"
-    data-site-id="4d62c8b17ba347180f000004"
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-3812928-4']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
