@@ -19,7 +19,7 @@ helpers do
 end
 
 def load_shows
-  YAML.load File.new(File.expand_path("./shows.yaml")).readlines.join
+  YAML.load File.read(File.expand_path("./shows.yaml"))
 end
 
 get '/' do
