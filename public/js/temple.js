@@ -31,6 +31,6 @@ $('#shows a').live('click', function() {
   //$('.show-desc').css('display', 'none');
   //$('#show-desc-' + show).css('display', 'block');
 
-  change_to($('#show'), '/images/show' + show + '.png');
+  change_to($('#show'), '/images/show' + show + '.jpg');
   return false;
 });

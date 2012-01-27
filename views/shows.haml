@@ -2,7 +2,7 @@
 - current_show = nil
 - preload_images = []
 - @shows.each_with_index do |show, i|
-  - preload_images << "'/images/show#{i+1}.png'"
+  - preload_images << "'/images/show#{i+1}.jpg'"
   - if current_show.nil? && today <= show['end']
     - current_show = i
 - if current_show.nil? # if it's after the last show, this'll be nil
@@ -34,7 +34,7 @@
     %img#stage{:src => "/images/stage/stage_drapes.png"}
     %img#left{:src => "/images/stage/curtain_left.png"}
     %img#right{:src => "/images/stage/curtain_right.png"}
-    %img#show{:src => "/images/show#{current_show + 1}.png"}
+    %img#show{:src => "/images/show#{current_show + 1}.jpg"}
 
 #show-descs
   - @shows.each_with_index do |show, i|
@@ -45,8 +45,9 @@
     %div{:id => "show-desc-#{i+1}", :class => "show-desc", :style => style}
       %p
         %strong= show['name']
-        written by
-        = "#{show['written']},"
+        - unless show['written'] == ''
+          written by
+          = "#{show['written']},"
         directed by
         = show['directed']
       %p

@@ -1,13 +1,15 @@
 -content_for :title do
   = @show['name']
 %h1.first= @show['name']
+- unless @show['written'] == ''
+  %p
+    Written by
+    = "#{@show['written']}"
 %p
-  Written by
-  = "#{@show['written']},"
-  directed by
-  = "#{@show['directed']}."
+  Directed by
+  = "#{@show['directed']}"
 %p
-  %img{:src => "/images/show#{@show_num}.png"}
+  %img{:src => "/images/show#{@show_num}.jpg"}
 %p= @show['description']
 %p= @show['dates']
 %p= link_to "Back to the Current Season", "/"
